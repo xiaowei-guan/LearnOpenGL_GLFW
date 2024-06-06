@@ -1,6 +1,8 @@
-#include <stdio.h>
+
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <iostream>
+
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow *window);
@@ -15,7 +17,8 @@ int main(int, char**){
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR,3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR,3);
-    glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT,GL_TRUE);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    //glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT,GL_TRUE);
 
         // glfw window creation
     // --------------------
@@ -28,6 +31,14 @@ int main(int, char**){
     }
     glfwMakeContextCurrent(window);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
+        // glad: load all OpenGL function pointers
+    // ---------------------------------------
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+    {
+        std::cout << "Failed to initialize GLAD" << std::endl;
+        return -1;
+    }  
         // render loop
     // -----------
     while (!glfwWindowShouldClose(window))
@@ -35,6 +46,11 @@ int main(int, char**){
         // input
         // -----
         processInput(window);
+
+             // render
+        // ------
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
@@ -54,7 +70,7 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
     // make sure the viewport matches the new window dimensions; note that width and 
     // height will be significantly larger than specified on retina displays.
-    //glViewport(0, 0, width, height);
+    glViewport(0, 0, width, height);
 }
 
 // process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
