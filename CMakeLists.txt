@@ -17,6 +17,7 @@ set(CHAPTERS
 set(1.getting_started
     1.1.hello_window
     2.1.hello_triangle
+    2.2.hello_triangle_indexed
 )
 
 function(create_project_from_sources chapter demo)
