@@ -18,6 +18,7 @@ set(1.getting_started
     1.1.hello_window
     2.1.hello_triangle
     2.2.hello_triangle_indexed
+    2.3.hello_triangle_exercise_001
 )
 
 function(create_project_from_sources chapter demo)
@@ -66,7 +67,7 @@ foreach(GUEST_ARTICLE ${GUEST_ARTICLES})
 endforeach(GUEST_ARTICLE)
 
 include_directories(
-    $(GLFW_INCLUDE_DIRS)
+    ${GLFW_INCLUDE_DIRS}
     ${CMAKE_SOURCE_DIR}/include
 )
 
