@@ -19,7 +19,8 @@ set(1.getting_started
     2.1.hello_triangle
     2.2.hello_triangle_indexed
     2.3.hello_triangle_exercise_001
-    2.3.hello_triangle_exercise_002
+    2.4.hello_triangle_exercise_002
+    2.5.hello_triangle_exercise_003
 )
 
 function(create_project_from_sources chapter demo)
