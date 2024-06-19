@@ -21,6 +21,8 @@ set(1.getting_started
     2.3.hello_triangle_exercise_001
     2.4.hello_triangle_exercise_002
     2.5.hello_triangle_exercise_003
+    3.1.shade_input_output
+    3.2.shade_uniform
 )
 
 function(create_project_from_sources chapter demo)
