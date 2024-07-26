@@ -24,6 +24,10 @@ set(1.getting_started
     3.1.shade_input_output
     3.2.shade_uniform
     3.3.shade_input_output_002
+    3.4.shade_class
+    3.5.shade_exercise_001
+    3.6.shade_exercise_002
+    3.7.shade_exercise_003
 )
 
 function(create_project_from_sources chapter demo)
